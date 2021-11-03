@@ -1,3 +1,4 @@
+# VADER sentiment analysis
 # import SentimentIntensityAnalyzer class
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
