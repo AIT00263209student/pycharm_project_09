@@ -7,9 +7,26 @@
     text-align: center
 }
 
+header {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.button{
+  border: none;
+  color: white;
+  background-color: mediumslateblue;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  padding: 16px 32px;
+}
+
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
 }
 
 .topnav {
