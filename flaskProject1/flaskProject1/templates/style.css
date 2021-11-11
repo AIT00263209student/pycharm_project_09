@@ -15,18 +15,31 @@ header {
 .button{
   border: none;
   color: white;
-  background-color: mediumslateblue;
+  background-color: thistle;
   text-align: center;
+  font-size: 20px;
   text-decoration: none;
   display: inline-block;
   margin: 4px 2px;
-  padding: 16px 32px;
+  padding: 14px 40px;
+  transition-duration: 0.5s;
+  width: 50%;
+}
+
+.button:hover{
+  background-color: mediumpurple;
+}
+
+.button a:hover{
+  transition-duration: 0.5s;
+  color: white;
 }
 
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
+  background-color: lavenderblush;
 }
 
 .topnav {
