@@ -15,7 +15,7 @@ auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
 
 api = tp.API(auth)
 
-tweets = api.search(q='Johnny Depp')
+tweets = api.search_tweets(q='Johnny Depp', lang="en")
 
 list = []
 
