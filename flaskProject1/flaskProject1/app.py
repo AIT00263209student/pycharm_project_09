@@ -21,13 +21,13 @@ def display_chart():  # put application's code here
 
     data = zip(labels, values)
 
-    list = []
+    list2 = []
 
     for label, value in data:
-        list.append({'name':label, 'y':value})
+        list2.append({'name': label, 'y': value})
 
-    return render_template('chart-display.html', title=title, description_txt=description, chart_name='bar-chart', data=list)
+    return render_template('chart-display.html', title=title, description_txt=description, chart_name='column', data=list2)
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

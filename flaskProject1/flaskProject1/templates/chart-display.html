@@ -3,6 +3,8 @@
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<pre id="csv"></pre>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -28,10 +30,10 @@
         plotBackgroundColor: null,
         plotBorderWidth: null,
         plotShadow: false,
-        type: 'bar-chart'
+        type: 'column'
     },
     title: {
-        text: '{{ discription_text }}'
+        text: '{{ description_text }}'
     },
     tooltip: {
         pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'

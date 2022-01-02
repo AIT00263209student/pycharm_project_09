@@ -40,7 +40,7 @@ def get_tweets():
 
     df = pd.DataFrame(list)
 
-    df.to_csv("output.csv", sep=",") # print to .csv file
+    df.to_csv("output.csv", sep=",")  # print to .csv file
 
 
 if __name__ == '__main__':
