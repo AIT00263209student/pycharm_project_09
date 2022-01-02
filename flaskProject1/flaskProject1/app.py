@@ -26,7 +26,7 @@ def display_chart():  # put application's code here
     for label, value in data:
         list2.append({'name': label, 'y': value})
 
-    return render_template('chart-display.html', title=title, description_txt=description, chart_name='column', data=list2)
+    return render_template('chart-display.html', chart_title=title, description_txt=description, chart_name='column', data=list2)
 
 
 if __name__ == '__main__':

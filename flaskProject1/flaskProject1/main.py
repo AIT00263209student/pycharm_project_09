@@ -19,6 +19,7 @@ api = tp.API(auth)
 # get tweets containing a specific keyword
 def get_tweets():
     tweets = api.search_tweets(q='Johnny Depp', lang="en")
+    tweets2 = api.search_tweets(q='Amber Heard', lang='en')
     list = []
 
 
