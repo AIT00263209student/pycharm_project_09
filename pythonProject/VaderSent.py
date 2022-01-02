@@ -3,9 +3,8 @@ from textblob import TextBlob
 import pandas as pd
 import csv
 
-#text = 'Everything is crap'
 
-df=pd.read_csv('output.csv')
+df = pd.read_csv('output.csv')
 df.head()
 
 analyser = SentimentIntensityAnalyzer()
