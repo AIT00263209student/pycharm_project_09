@@ -19,16 +19,20 @@ api = tp.API(auth)
 
 
 @app.route('/single_topic', methods=['GET', 'POST'])
-if request.method == 'POST':
-    text = request.form('text')
-    data = text.upper()
+if request.method == 'POST' && request.form.items(multi=True):
+    text1 = request.form('text1')
+    data1 = text1.upper()
+    text2 = request.form('text2')
+    data2 = text2.upper()
+
 # get tweets containing a specific keyword
-    tweets = api.search_tweets(q=data, lang="en")
+    tweets1 = api.search_tweets(q=data1, lang="en")
+    tweets2 = api.search_tweets(q=data2, lang="en")
     list = []
 
 
 # print tweets
-    for tweet in tweets:
+    for tweet in tweets1:
 
         sentiment = TextBlob(tweet.text).sentiment.polarity
 
@@ -40,6 +44,19 @@ if request.method == 'POST':
             sentiment = 'neu'
 
         list.append((tweet.text, sentiment))
+
+        for tweet2 in tweets2:
+
+            sentiment = TextBlob(tweet.text).sentiment.polarity
+
+            if sentiment > 0.15:
+                sentiment = 'positive'
+            elif sentiment < -.15:
+                sentiment = 'neg'
+            else:
+                sentiment = 'neu'
+
+            list.append((tweet2.text, sentiment))
 
     df = pd.DataFrame(list)
 

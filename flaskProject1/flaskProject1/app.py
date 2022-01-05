@@ -5,6 +5,7 @@ import pandas_highcharts.core
 
 from main import get_tweets
 from sentiment import sentiment_analyser_score
+from visual import print_visual
 
 app = Flask(__name__)
 
@@ -35,3 +36,4 @@ def display_chart(chart_id='chartid', chart_type='column', chart_height=600):  #
 
 if __name__ == '__main__':
     app.run(debug=True)
+    print_visual()

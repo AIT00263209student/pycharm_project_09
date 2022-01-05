@@ -17,8 +17,6 @@ def print_visual():
     fig, ax = plt.subplots()
     return render_template('chart-display.html', print_visual=plt.subplots() )
 
-    # presenting data as a pie chart
-
 
 if __name__ == '__main__':
     app.run(debug=True)
