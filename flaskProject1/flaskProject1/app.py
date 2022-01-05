@@ -1,5 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, request, render_template
 import json
+import pandas as pd
+import pandas_highcharts.core
 
 from main import get_tweets
 from sentiment import sentiment_analyser_score
@@ -7,12 +9,14 @@ from sentiment import sentiment_analyser_score
 app = Flask(__name__)
 
 
-@app.route('/')
-def display_chart():  # put application's code here
+@app.route('/graph')
+def display_chart(chart_id='chartid', chart_type='column', chart_height=600):  # put application's code here
     title = 'Data Visualisation Project'
     description = 'Sentiment Visualisation Chart'
 
+    df = pd.read_csv('./output.csv', index_col='0', parse_dates=True)
     df = get_tweets('johnny depp')
+    dataset = pandas_highcharts.core.serialize(df, render_to='chart', output_type='json')
 
     pos, neu, neg = sentiment_analyser_score(df)
 
@@ -26,7 +30,7 @@ def display_chart():  # put application's code here
     for label, value in data:
         list2.append({'name': label, 'y': value})
 
-    return render_template('chart-display.html', chart_title=title, description_txt=description, chart_name='column', data=list2)
+    return render_template('chart-display.html', chart=dataset, data=list2)
 
 
 if __name__ == '__main__':

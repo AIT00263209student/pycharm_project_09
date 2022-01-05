@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <meta charset="UTF-8">
     <title>2-Topic Analysis</title>
     <link rel="stylesheet" href="../static/style.css">
@@ -14,6 +19,24 @@
     </ul>
 </nav>
 <h1>Dual Topic Analysis</h1>
+<br>
+<figure class="highcharts-figure">
+    <h2>Enter the two topics you wish to analyse below:</h2>
+    <form method="POST">
+        <input name="text1">
+        <input type="submit">
+    </form>
+    <br>
+    <form method="POST">
+        <input name="text2">
+        <input type="submit">
+    </form>
+    <div id="container" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
+    <div style="max-width: 800px; margin: 0 auto"></div>
+    <script type="text/javascript">new Highcharts.Chart({{chart|safe}})</script>
+</figure>
+<script src="https://rawgit.com/mholt/PapaParse/master/papaparse.js"></script>
+<script src="./columns.js"></script>
 </body>
 <footer>
     <p>Website by Tara Da Silva and Roisin Brady</p>

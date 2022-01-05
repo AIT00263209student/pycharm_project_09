@@ -1,3 +1,4 @@
+from flask import Flask, request
 import tweepy as tp
 from tweepy.auth import AuthHandler
 import pandas as pd
@@ -16,10 +17,12 @@ auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
 api = tp.API(auth)
 
 
+@app.route('/single_topic', methods=['GET', 'POST'])
+if request.method == 'POST':
+    text = request.form('text')
+    data = text.upper()
 # get tweets containing a specific keyword
-def get_tweets():
-    tweets = api.search_tweets(q='Johnny Depp', lang="en")
-    tweets2 = api.search_tweets(q='Amber Heard', lang='en')
+    tweets = api.search_tweets(q=data, lang="en")
     list = []
 
 
@@ -37,23 +40,8 @@ def get_tweets():
 
         list.append((tweet.text, sentiment))
 
-        for tweet2 in tweets2:
-
-            sentiment = TextBlob(tweet.text).sentiment.polarity
-
-            if sentiment > 0.15:
-                sentiment = 'positive'
-            elif sentiment < -.15:
-                sentiment = 'neg'
-            else:
-                sentiment = 'neu'
-
-            list.append((tweet2.text, sentiment))
-
     df = pd.DataFrame(list)
-
-    df.to_csv("output.csv", sep=",")
 
 
 if __name__ == '__main__':
-    get_tweets()
+    app.run(debug=True)
