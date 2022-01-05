@@ -1,7 +1,6 @@
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from textblob import TextBlob
 import pandas as pd
-import time
 import csv
 
 df = pd.read_csv('output.csv')
