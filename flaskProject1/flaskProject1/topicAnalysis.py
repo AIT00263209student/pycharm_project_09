@@ -2,7 +2,6 @@ from flask import Flask, request
 import tweepy as tp
 from tweepy.auth import AuthHandler
 import pandas as pd
-from textblob import TextBlob
 from visual import print_visual
 
 

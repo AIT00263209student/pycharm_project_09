@@ -7,6 +7,16 @@ $(document).ready(function(){
      });
 });
 
+value = $('.textbox').val();
+$.ajax({
+  type: 'POST',
+  url: "{{ url_for('single-analysis') }}",
+    url: "{{ url_for('dual-analysis') }}",
+  data: JSON.stringify(value),
+  contentType: 'application/json',
+  success: function(data){processData(data);}
+});
+
 function processData(allText) {
     var allTextLines = allText.split(/\r\n|\n/);
     var headers = allTextLines[0].split(',');
