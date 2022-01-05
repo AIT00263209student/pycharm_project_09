@@ -17,8 +17,9 @@ auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
 
 api = tp.API(auth)
 
+app = Flask(__name__)
 
-@app.route('/single_topic', methods=['GET', 'POST'])
+@app.route('/dual-analysis', methods=['GET', 'POST'])
 if request.method == 'POST' && request.form.items(multi=True):
     text1 = request.form('text1')
     data1 = text1.upper()

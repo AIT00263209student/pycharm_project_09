@@ -17,8 +17,9 @@ auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
 
 api = tp.API(auth)
 
+app = Flask(__name__)
 
-@app.route('/single_topic', methods=['GET', 'POST'])
+@app.route('/single-analysis', methods=['GET', 'POST'])
 if request.method == 'POST':
     text = request.form('text')
     data = text.upper()
